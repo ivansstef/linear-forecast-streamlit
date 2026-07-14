@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+
+# Joblib artifacts
+*.joblib
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Pytest cache
+.pytest_cache/
+
+# Reference / instructor materials
+reference/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
