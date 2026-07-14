@@ -2,5 +2,4 @@ joblib
 streamlit
 scikit-learn
 numpy
-pandas
 matplotlib

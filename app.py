@@ -85,8 +85,6 @@ def load_and_predict(X: ArrayLike, filename: str = "linear_regression_model.jobl
     Returns:
         np.ndarray: Predicted value.
     """
-    
-    # TODO: your code here
     model = load(filename)
     y = model.predict(X)
     return y
@@ -111,8 +109,6 @@ def create_streamlit_app():
     Note: This function does not return any value. It directly manipulates the Streamlit app's UI by 
     writing content and rendering UI elements.
     """
-    # TODO: your code here
-
     st.set_page_config(
         page_title="Лінійний прогноз: інтерактивна демонстрація",
         layout="centered",
@@ -136,15 +132,12 @@ def create_streamlit_app():
 
     # Button to make a prediction
     if st.button("Передбачити значення"):
-        # 1. Call load_and_predict functions.
-        # Make sure you convert the input_feature to a matrix before calling load_and_predict, e.g., load_and_predict([[input_feature]])
         try:
             prediction = load_and_predict([[input_feature]])
         except FileNotFoundError:
             st.error("Файл моделі не знайдено. Спочатку запустіть `python model.py`.")
             return
 
-        # 2. Display the prediction.
         pred_scalar = float(np.asarray(prediction).flat[0])
 
         # Картки метрик
@@ -162,7 +155,6 @@ def create_streamlit_app():
             unsafe_allow_html=True,
         )
 
-        # 4. Call visualize_difference to display a plot visualizing the difference between actual and perdicted value.
         visualize_difference(input_feature, pred_scalar)
 
 def visualize_difference(input_feature: float, prediction: ArrayLike):
@@ -255,23 +247,14 @@ def visualize_difference(input_feature: float, prediction: ArrayLike):
 # This is a helper function. No need to edit it
 def _index_of_closest(X: ArrayLike, k: float) -> int:
     """
-    This function takes an array-like object `X` and a float `k`, and returns the index of the 
-    element in `X` that is closest to `k`. The function first converts `X` into a NumPy array 
-    (if it isn't one already) to ensure compatibility with NumPy operations. It then calculates 
-    the absolute difference between each element in `X` and `k`, identifies the minimum value 
-    among these differences, and returns the index of this minimum difference.
+    Знаходить індекс елементу в масиві ``X``, найближчого до значення ``k``.
 
     Args:
-        X (ArrayLike): An array-like object containing numerical data. It can be a list, tuple, 
-      or any object that can be converted to a NumPy array.
-        k (float): The target value to which the closest element in `X` is sought.
+        X (ArrayLike): Масив числових значень.
+        k (float): Значення, до якого шукається найближче.
 
     Returns:
-        int: The index of the element in `X` that is closest to the value `k`.
-    Returns:
-        int: Index for the closest value to k in X.
-    Finds the index of the element in `X` that is closest to the value `k`.
-
+        int: Індекс найближчого елементу.
     """
     X = np.asarray(X)
     idx = (np.abs(X - k)).argmin()

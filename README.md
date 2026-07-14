@@ -1,8 +1,36 @@
 # Лінійний прогноз: інтерактивна демонстрація
 
-Навчальний проєкт лінійної регресії зі Streamlit.
+Навчальний проєкт курсу **EmpowerU AI Fundamentals**.
+Демонструє повний цикл лінійної регресії — від генерації даних до інтерактивного прогнозу у вебзастосунку.
+
+## Що демонструє проєкт
+
+Дані → навчання → оцінювання → збереження → прогноз → візуалізація
+
+Синтетичний набір даних (100 зразків, 1 ознака) генерується за допомогою `sklearn`, ознака X масштабується до `[-3, 3]`, модель `LinearRegression` навчається, оцінюється через MSE та зберігається. Streamlit-застосунок завантажує модель і дозволяє отримати прогноз для будь-якого X у діапазоні `[-3, 3]`.
+
+## Основні функції
+
+- `model.py` — навчання, оцінювання та серіалізація моделі
+- `app.py` — Streamlit-інтерфейс із повзунком, прогнозом і порівняльним графіком
+
+## Структура репозиторію
+
+```
+app.py                          Streamlit-застосунок
+model.py                        Навчання та збереження моделі
+requirements.txt                Залежності
+linear_regression_model.joblib  Навчена модель
+X.joblib                        Початкові значення ознаки
+y.joblib                        Початкові цільові значення
+tests/
+    test_app.py
+    test_model.py
+```
 
 ## Встановлення та запуск
+
+### Windows (PowerShell)
 
 ```powershell
 python -m venv .venv
@@ -10,37 +38,42 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-### Тренування моделі
+### Linux / macOS
 
-```powershell
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Навчання моделі
+
+```bash
 python model.py
 ```
 
-Виводить MSE і зберігає `linear_regression_model.joblib`, `X.joblib`, `y.joblib`.
+Виводить MSE у термінал і зберігає три файли: `linear_regression_model.joblib`, `X.joblib`, `y.joblib`.
+
+Відтворюваний результат: **Mean Squared Error ≈ 416.81**
 
 ### Запуск застосунку
 
-```powershell
+```bash
 streamlit run app.py
 ```
 
 ### Тести
 
-```powershell
+```bash
 pytest tests/ -v
 ```
 
-## Структура
+## Файли моделі
 
-```
-app.py          — Streamlit-застосунок
-model.py        — навчання і збереження моделі
-requirements.txt
-tests/
-    test_model.py
-    test_app.py
-```
+`linear_regression_model.joblib`, `X.joblib` та `y.joblib` закомічені безпосередньо в репозиторій для відтворюваного деплою.
+**Завантажуйте joblib/pickle-артефакти лише з довірених джерел.**
 
-## Деплой
+## Посилання
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://linear-forecast-streamlit.streamlit.app)
+- Застосунок: [https://finaltest.savytskyy.com.ua](https://finaltest.savytskyy.com.ua)
+- Репозиторій: [https://github.com/ivansstef/linear-forecast-streamlit](https://github.com/ivansstef/linear-forecast-streamlit)
