@@ -5,11 +5,21 @@
 __pycache__/
 *.py[cod]
 
-# Pytest cache
+# Pytest / coverage cache
 .pytest_cache/
+.coverage
+htmlcov/
 
 # Reference / instructor materials
 reference/
+
+# Copilot agent files
+COPILOT_TASK.md
+COPILOT_START_PROMPT.txt
+
+# Environment / secrets
+.env
+.env.*
 
 # VS Code
 .vscode/
