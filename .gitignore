@@ -1,9 +1,6 @@
 # Virtual environment
 .venv/
 
-# Joblib artifacts
-*.joblib
-
 # Python cache
 __pycache__/
 *.py[cod]
