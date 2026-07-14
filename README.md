@@ -75,5 +75,5 @@ pytest tests/ -v
 
 ## Посилання
 
-- Застосунок: [https://finaltest.savytskyy.com.ua](https://finaltest.savytskyy.com.ua)
+- Застосунок: [https://linear-forecast-app-m3ipfvjtehmdqx8au4hiwn.streamlit.app/](https://linear-forecast-app-m3ipfvjtehmdqx8au4hiwn.streamlit.app/))
 - Репозиторій: [https://github.com/ivansstef/linear-forecast-streamlit](https://github.com/ivansstef/linear-forecast-streamlit)
